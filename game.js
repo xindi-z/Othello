@@ -28,6 +28,8 @@ function createboard(){
                     document.querySelectorAll(".hint").forEach(h => h.remove()); // clean the hints
                     showHints(); // show new hints
                     setTimeout(gameover, 100);         // when game over detected, delay gameover to finished the flipping and score updating first
+                    setTimeout(checkSkipTurn(),100); // Check if the next player can move
+
                 }
             }
         });
@@ -242,6 +244,14 @@ restartBtn.classList.add("restart-btn");
 restartBtn.addEventListener("click", startboard);
 scoreboard.appendChild(restartBtn);
 
+function checkSkipTurn() {
+    let playable = Array.from(board.children).some(cell => !cell.querySelector(".chess") && hasAdjacentOpponent(cell, turn) && flipChess(cell, turn, true));
+    if (!playable) {
+        alert(`${turn} cannot play, turn skipped.`);
+        turn = (turn === "black") ? "white" : "black";
+        showHints();
+    }
+}
 
 // call the game create chess board and to start the Othello
 createboard();
