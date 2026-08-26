@@ -4,6 +4,8 @@ A browser-based implementation of the classic **Othello (Reversi)** board game b
 
 The project implements the core game logic from scratch, including legal move detection, directional piece flipping, turn management, scoring, move hints, and game-over detection.
 
+<img width="713" height="595" alt="image" src="https://github.com/user-attachments/assets/e32afd49-a134-4b42-9adc-914815716c8d" />
+
 ## Features
 
 - Interactive 8×8 Othello board
